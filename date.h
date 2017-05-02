@@ -56,7 +56,7 @@ namespace Chrono {
     }
 
   const Date& default_date() {
-    static Date dd(2001,Month::jan,1);
+    static Date dd(2001,jan,1);
     return dd;
   }
 
@@ -87,8 +87,8 @@ namespace Chrono {
   }
 
   void Date::add_year(int n) {
-    if (m == Month::feb && d == 29 && !leapyear(y+n)) {
-      m=Month::mar;
+    if (m == feb && d == 29 && !leapyear(y+n)) {
+      m=mar;
       d=1;
     }
     y+=n;
@@ -98,13 +98,13 @@ namespace Chrono {
   int days_in_month(int y, Month m) {
     int days = 31;
     switch(m) {
-    case Month::feb:
+    case feb:
       days = leapyear(y)?29:28;
       break;
-    case Month::apr:
-    case Month::jun:
-    case Month::sep:
-    case Month::nov:
+    case apr:
+    case jun:
+    case sep:
+    case nov:
       days = 30;
       break;
     default:
@@ -115,7 +115,7 @@ namespace Chrono {
   
   bool is_date(int y, Month m, int d) {
     if (d<=0) return false;
-    if (m<Month::jan||Month::dec<m) return false;
+    if (m<jan||dec<m) return false;
     
     if (days_in_month(y,m)<d) return false;
 
