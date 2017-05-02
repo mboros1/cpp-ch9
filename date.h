@@ -46,8 +46,8 @@ namespace Chrono {
 	};
 	
 	Day day_of_week(const Date& d);
-	Date next_Sunday(const Date& d);
-	Date next_weekday(const Date& d);
+	//Date next_Sunday(const Date& d);
+	//Date next_weekday(const Date& d);
 
 	Date::Date(int yy, Month mm, int dd)
       :y(yy),m(mm),d(dd)
@@ -165,10 +165,9 @@ namespace Chrono {
     return (Day(dd%7));
   }
 
-  Date next_Sunday(const Date d) {
-  }
+  //Date next_Sunday(const Date d) {}
 
-  Date next_weekday(const Date& d) {}
+  //Date next_weekday(const Date& d) {}
  
 }
 }
