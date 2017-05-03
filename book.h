@@ -7,6 +7,7 @@ namespace std {
 	namespace Book {
 		class Book {
 		public:
+		  class Invalid{};
 			std::string isbn() { return ISBN; }
 			std::string title() { return Title; }
 			std::string author() { return Author; }
@@ -28,7 +29,22 @@ namespace std {
 		Book::Book(std::string isbn, std::string title, std::string author, Chrono::Date copyright)
 			:ISBN(isbn), Title(title), Author(author), Copyright(copyright), Is_Out(false)
 		{
-
+		  int dash_count = 0;
+		  for(char &c : isbn) {
+		    switch(dash_count) {
+		    case 0:
+		    case 1:
+		    case 2:
+		      if (c == '-') dash_count++;
+		      else if (!isdigit(c)) throw Invalid();
+		      break;
+		    case 3:
+		      if (!isalpha(c)) throw Invalid();
+		      break;
+		    default:
+		      throw Invalid();
+		    }
+		  }
 		}
 	}
 }

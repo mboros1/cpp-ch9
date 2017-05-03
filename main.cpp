@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "date.h"
+//#include "date.h"
+#include "book.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ int main() {
   cout << a << '\n';
   a.add_year(50);
   cout << a << '\n';
-  
+  Book::Book asdf = Book::Book("123-123-12-vbfg", "asadfdsafsdf", "aasdfsdsdf", a);
+  cout << asdf.isbn();
   return 0;
 }
